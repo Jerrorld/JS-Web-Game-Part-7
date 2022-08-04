@@ -4,7 +4,7 @@ const pc = newPlayableCharacter(100, 110)
 // Create a non-playable character
 const npc = newNonPlayableCharacter(50, 300)
 
-// NPC will walk around map and stop where it started
+// NPC will walk around map and loop
 async function moveNPC(){
     await npc.walkNorth(1400);
     await npc.walkEast(1200);
@@ -13,6 +13,7 @@ async function moveNPC(){
     await npc.walkSouth(1500);
     await npc.walkWest(2700);
     await npc.walkNorth(400);
+    window.requestAnimationFrame(moveNPC)
 }
 moveNPC()
 
